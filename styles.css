@@ -1,0 +1,9 @@
+.imageBag {
+    display: flex;
+}
+
+img {
+    width: 10%;
+    height: auto;
+    margin: 10%;
+}
