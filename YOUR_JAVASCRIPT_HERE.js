@@ -62,10 +62,10 @@ function displayStats() {
     const weaponDamage = hero.weapon.damage
 
     //declare needed elements
-    const nameP = document.createElement('p')
-    const healthP = document.createElement('p')
-    const weaponTypeP = document.createElement('p')
-    const weaponDamageP = document.createElement('p')
+    const nameP = document.getElementById('nameP')
+    const healthP = document.getElementById('healthP')
+    const weaponTypeP = document.getElementById('weaponTypeP')
+    const weaponDamageP = document.getElementById('weaponDamageP')
 
     //adjust the created elements 
     nameP.innerHTML = name
@@ -74,15 +74,15 @@ function displayStats() {
     weaponDamageP.innerHTML = weaponDamage
 
     // append as children of divs
-    const nameDiv = document.getElementById('name')
-    const healthDiv = document.getElementById('health')
-    const weaponDiv = document.getElementById('weapon')
-    const damageDiv = document.getElementById('damage')
+    // const nameDiv = document.getElementById('name')
+    // const healthDiv = document.getElementById('health')
+    // const weaponDiv = document.getElementById('weapon')
+    // const damageDiv = document.getElementById('damage')
     
-    nameDiv.appendChild(nameP)
-    healthDiv.appendChild(healthP)
-    weaponDiv.appendChild(weaponTypeP)
-    damageDiv.appendChild(weaponDamageP)
+    // nameDiv.appendChild(nameP)
+    // healthDiv.appendChild(healthP)
+    // weaponDiv.appendChild(weaponTypeP)
+    // damageDiv.appendChild(weaponDamageP)
 }
 
 displayStats()
@@ -96,10 +96,24 @@ function submitName(event) {
     const inputField = document.getElementById('userName')
     let usersName = inputField.value
 
-    hero.name = usersName
+    if(checkValidation(usersName)) {
+        return null
+    } else {
 
-    displayStats()       
-}        
+    hero.name = usersName
+     
+    displayStats()  
+    }
+}      
+
+//check if hero name is filled in
+function checkValidation(name) {
+    if (!name) {
+        alert('Please fill in the name of your hero.')
+        return true
+    }
+    return false
+}
 
 // create enemy
 const enemy = {
@@ -167,10 +181,10 @@ function displayEnemyStats() {
     enemyWeaponDamage = enemy.weapon.damage
 
     //declare needed elements
-    const enemeyNameP = document.createElement('p')
-    const enemyHealthP = document.createElement('p')
-    const enemyWeaponTypeP = document.createElement('p')
-    const enemyWeaponDamageP = document.createElement('p')
+    const enemeyNameP = document.getElementById('enemyNameP')
+    const enemyHealthP = document.getElementById('enemyHealthP')
+    const enemyWeaponTypeP = document.getElementById('enemyWeaponTypeP')
+    const enemyWeaponDamageP = document.getElementById('enemyWeaponDamageP')
 
     //adjust the created elements 
     enemeyNameP.innerHTML = enemyName
@@ -179,16 +193,16 @@ function displayEnemyStats() {
     enemyWeaponDamageP.innerHTML = enemyWeaponDamage
 
 
-    // append as children of divs
-    const enemyNameDiv = document.getElementById('enemy-name')
-    const enemyHealthDiv = document.getElementById('enemy-health')
-    const enemyWeaponDiv = document.getElementById('enemy-weapon')
-    const enemyDamageDiv = document.getElementById('enemy-damage')
+    // // append as children of divs
+    // const enemyNameDiv = document.getElementById('enemy-name')
+    // const enemyHealthDiv = document.getElementById('enemy-health')
+    // const enemyWeaponDiv = document.getElementById('enemy-weapon')
+    // const enemyDamageDiv = document.getElementById('enemy-damage')
  
-    enemyNameDiv.appendChild(enemeyNameP)
-    enemyHealthDiv.appendChild(enemyHealthP)
-    enemyWeaponDiv.appendChild(enemyWeaponTypeP)
-    enemyDamageDiv.appendChild(enemyWeaponDamageP)
+    // enemyNameDiv.appendChild(enemeyNameP)
+    // enemyHealthDiv.appendChild(enemyHealthP)
+    // enemyWeaponDiv.appendChild(enemyWeaponTypeP)
+    // enemyDamageDiv.appendChild(enemyWeaponDamageP)
 }
 
 
