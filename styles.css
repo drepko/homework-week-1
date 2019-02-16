@@ -2,6 +2,11 @@
     display: flex;
 }
 
+.enemy-bag {
+    display: flex;
+    margin-bottom: 5%;
+}
+
 img {
     width: 10%;
     height: auto;
@@ -9,24 +14,41 @@ img {
     margin-right: 5%;
 }
 
-#results, #enemy-results {
+#results {
     display: flex;
+    width: 80%;
     border: 2px solid palevioletred;
+    margin-top: 2%;
+    margin-left: 2%;
+    margin-right: 10%;
 }
 
 .result-box {
-    width: 10%;
-    height: auto;
-    margin:5%;
+    margin: 2%;
 }
 
-.enemy-bag {
+#hero-results, #enemy-results {
     display: flex;
-    margin-bottom: 5%;
+    width: 50%;
 }
+
+
+
+
 
 #hero, #enemy {
     margin-top: 2%;
     margin-left: 2%;
 }
 
+form {
+    border: 2px solid palevioletred;
+    padding: 2%;
+    width: 80%;
+    margin-left: 2%;
+    margin-right: 10%;
+}
+
+button {
+    margin: 1%;
+}

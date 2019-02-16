@@ -15,6 +15,7 @@ const hero = {
 function rest(object) {
     object.health = 10
     console.log(object.health)
+    displayStats()
     return object
 }
 
@@ -94,12 +95,10 @@ function submitName(event) {
     // gather data
     const inputField = document.getElementById('userName')
     let usersName = inputField.value
-   
-    console.log(usersName)
 
     hero.name = usersName
 
-    displayStats()    
+    displayStats()       
 }        
 
 // create enemy
@@ -107,7 +106,7 @@ const enemy = {
     name: 'Dragon',
     heroic: false,
     inventory: [],
-    health: 3,
+    health: 5,
     weapon: {
         type: 'fire',
         damage: 5,
@@ -119,9 +118,19 @@ const enemy = {
 const fireImage = document.getElementById('fire')
 fireImage.style.display = 'block'
 
+
 function deleteFire() {
+    if (hero.health > 8 && hero.health >= 10) {
+        alert('Be carefull, fire can burn. You lost some health points. Try again!')
+        hero.health-=5;
+        displayStats()
+    } 
     fireImage.style.display = 'none'
     alert('You made your enemy very weak!')
+    enemy.weapon.type = '-'
+    enemy.weapon.damage = '-'
+    displayEnemyStats()
+    
 }
 
 // destroy dragon by clicking
@@ -131,14 +140,20 @@ function destroyDragon() {
     } else {
 
     alert('Destroy dragon. Keep attacking him!')
-    enemy.health--
+    enemy.health-= 2
+    hero.health -= 4
     console.log(enemy.health)
     displayEnemyStats()
+    displayStats()
 
-    if(enemy.health === 0) {
+    if (hero.health <= 0) {
+        alert('GAME OVER: You have been destroyed.')
+    }
+
+    if(enemy.health <= 0) {
         const dragon = document.getElementById('dragon')
         dragon.style.display = 'none'
-        alert('You destroyed your enemy!')
+        alert('YOU WIN: Your enemy has been destroyed!')
         
     }
     }
@@ -176,7 +191,11 @@ function displayEnemyStats() {
     enemyDamageDiv.appendChild(enemyWeaponDamageP)
 }
 
+
+
+
+// trying other features
+
+
+
 displayEnemyStats()
-
-
-
