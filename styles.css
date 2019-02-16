@@ -7,3 +7,14 @@ img {
     height: auto;
     margin: 10%;
 }
+
+#results {
+    display: flex;
+    border: 2px solid palevioletred;
+}
+
+.result-box {
+    width: 10%;
+    height: auto;
+    margin: 10%;
+}

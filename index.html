@@ -10,9 +10,38 @@
 
 
   <!-- YOUR HTML HERE -->
-<img id = 'inn' src = 'http://icons.iconarchive.com/icons/raindropmemory/legendora/256/Hero-icon.png'/>
-<img id = 'dagger' src = 'http://download.seaicons.com/download/i29619/raindropmemory/legendora/raindropmemory-legendora-swordaxe.ico'/>
-<img id = 'bag' onclick = 'equipWeapon(hero)' src = 'https://es.seaicons.com/wp-content/uploads/2015/10/ele-fire-icon.png'/>
+ <div class = 'imageBag'>
+  <img id = 'inn' onclick = 'rest(hero)' src = 'https://es.seaicons.com/wp-content/uploads/2015/10/ele-fire-icon.png'/>
+  <img id = 'dagger' src = 'http://icons.iconarchive.com/icons/raindropmemory/legendora/256/Hero-icon.png'/>
+  <img id = 'bag' onclick = 'equipWeapon(hero)' src = 'http://download.seaicons.com/download/i29619/raindropmemory/legendora/raindropmemory-legendora-swordaxe.ico'/>
+</div> 
+
+<div id = 'results'>
+  <div id = 'name' class = 'result-box'>
+    <h3>Name</h3>
+  </div>
+  <div id = 'health' class = 'result-box'>
+    <h3>Health</h3>
+  </div>
+  <div id = 'weapon' class = 'result-box'>
+    <h3>Weapon</h3>
+  </div>
+  <div id = 'damage' class = 'result-box'>
+    <h3>Damage</h3>
+  </div>
+</div>
+
+<form onsubmit="submitName(event); return false">
+  <h3>what is the name of your hero?</h3>
+  <div class="formSection">
+    <label for="name">Name:</label>
+    <input type="text" id="userName">
+  </div>
+  <div class="button">
+    <button type="default">Submit</button>
+  </div>
+</form>
+
 
 
   <!-- I RECOMMEND YOU LEAVE THE REST UNTOUCHED -->
