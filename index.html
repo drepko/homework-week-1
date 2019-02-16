@@ -10,11 +10,21 @@
 
 
   <!-- YOUR HTML HERE -->
- <div class = 'imageBag'>
-  <img id = 'inn' onclick = 'rest(hero)' src = 'https://es.seaicons.com/wp-content/uploads/2015/10/ele-fire-icon.png'/>
-  <img id = 'dagger' src = 'http://icons.iconarchive.com/icons/raindropmemory/legendora/256/Hero-icon.png'/>
-  <img id = 'bag' onclick = 'equipWeapon(hero)' src = 'http://download.seaicons.com/download/i29619/raindropmemory/legendora/raindropmemory-legendora-swordaxe.ico'/>
+<div id = 'hero'>HERO</div>
+
+ <div class = 'hero-bag'>
+  <img id = 'inn' onclick = 'rest(hero)' src = 'https://it.seaicons.com/wp-content/uploads/2015/10/Potion-icon.png'/>
+  <img id = 'dagger' src = 'http://download.seaicons.com/download/i29619/raindropmemory/legendora/raindropmemory-legendora-swordaxe.ico'/>
+  <img id = 'bag' onclick = 'equipWeapon(hero)' src = 'http://icons.iconarchive.com/icons/raindropmemory/legendora/256/Hero-icon.png'/>
 </div> 
+
+<div id = 'enemy'>ENEMY</div>
+
+<div class = 'enemy-bag'>
+  <img id = 'dragon' onclick = 'destroyDragon()' src = 'http://download.seaicons.com/icons/raindropmemory/legendora/256/Fire-Dragon-icon.png'/>
+  <img id = 'fire' onclick = 'deleteFire()' src = 'https://es.seaicons.com/wp-content/uploads/2015/10/ele-fire-icon.png'/>
+</div>
+
 
 <div id = 'results'>
   <div id = 'name' class = 'result-box'>
@@ -31,8 +41,23 @@
   </div>
 </div>
 
+<div id = 'enemy-results'>
+  <div id = 'enemy-name' class = 'result-box'>
+    <h3>Name</h3>
+  </div>
+  <div id = 'enemy-health' class = 'result-box'>
+    <h3>Health</h3>
+  </div>
+  <div id = 'enemy-weapon' class = 'result-box'>
+    <h3>Weapon</h3>
+  </div>
+  <div id = 'enemy-damage' class = 'result-box'>
+    <h3>Damage</h3>
+  </div>
+</div>
+
 <form onsubmit="submitName(event); return false">
-  <h3>what is the name of your hero?</h3>
+  <h3>What is the name of your hero?</h3>
   <div class="formSection">
     <label for="name">Name:</label>
     <input type="text" id="userName">

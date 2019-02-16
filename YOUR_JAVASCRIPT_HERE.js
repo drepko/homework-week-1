@@ -1,11 +1,11 @@
 // Write your JS here
 const hero = {
-    name: 'skeletor',
+    name: 'Skeletor',
     heroic: true,
     inventory: [],
     health: 10,
     weapon: {
-        type: 'knife',
+        type: 'spoon',
         damage: 2,
     }
 }
@@ -16,7 +16,6 @@ function rest(object) {
     object.health = 10
     console.log(object.health)
     return object
-    
 }
 
 // calls pickUpItem() function with argument 'hero' and 'hero.weapon' when daggerImg is clicked
@@ -41,6 +40,7 @@ function equipWeapon(heroObject) {
    }
     heroObject.weapon = heroObject.inventory[0]    
     console.log(heroObject.weapon)
+    displayStats()
 }
 
 // checks if the array is empty
@@ -104,13 +104,79 @@ function submitName(event) {
 
 // create enemy
 const enemy = {
-    name: 'danimal',
+    name: 'Dragon',
     heroic: false,
     inventory: [],
-    health: 8,
+    health: 3,
     weapon: {
-        type: 'spoon',
-        damage: 1,
+        type: 'fire',
+        damage: 5,
     }
 
 }
+
+// delete enemy's weapon by clicking
+const fireImage = document.getElementById('fire')
+fireImage.style.display = 'block'
+
+function deleteFire() {
+    fireImage.style.display = 'none'
+    alert('You made your enemy very weak!')
+}
+
+// destroy dragon by clicking
+function destroyDragon() {
+    if (fireImage.style.display === 'block') {
+    alert('Watch out, get rid of his fire first!')
+    } else {
+
+    alert('Destroy dragon. Keep attacking him!')
+    enemy.health--
+    console.log(enemy.health)
+    displayEnemyStats()
+
+    if(enemy.health === 0) {
+        const dragon = document.getElementById('dragon')
+        dragon.style.display = 'none'
+        alert('You destroyed your enemy!')
+        
+    }
+    }
+}
+
+function displayEnemyStats() {
+    // gather data
+    enemyName = enemy.name
+    enemyHealth = enemy.health
+    enemyWeaponType = enemy.weapon.type
+    enemyWeaponDamage = enemy.weapon.damage
+
+    //declare needed elements
+    const enemeyNameP = document.createElement('p')
+    const enemyHealthP = document.createElement('p')
+    const enemyWeaponTypeP = document.createElement('p')
+    const enemyWeaponDamageP = document.createElement('p')
+
+    //adjust the created elements 
+    enemeyNameP.innerHTML = enemyName
+    enemyHealthP.innerHTML = enemyHealth
+    enemyWeaponTypeP.innerHTML = enemyWeaponType
+    enemyWeaponDamageP.innerHTML = enemyWeaponDamage
+
+
+    // append as children of divs
+    const enemyNameDiv = document.getElementById('enemy-name')
+    const enemyHealthDiv = document.getElementById('enemy-health')
+    const enemyWeaponDiv = document.getElementById('enemy-weapon')
+    const enemyDamageDiv = document.getElementById('enemy-damage')
+ 
+    enemyNameDiv.appendChild(enemeyNameP)
+    enemyHealthDiv.appendChild(enemyHealthP)
+    enemyWeaponDiv.appendChild(enemyWeaponTypeP)
+    enemyDamageDiv.appendChild(enemyWeaponDamageP)
+}
+
+displayEnemyStats()
+
+
+
